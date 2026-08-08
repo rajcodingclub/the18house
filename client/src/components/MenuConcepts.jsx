@@ -4,7 +4,7 @@ const concepts = [
   {
     key: 'starter',
     title: 'STARTER',
-    image: '/images/menu3.svg', // Roll / Wrap image
+    image: '/images/menu1.svg', // Roll / Wrap image
     alt: 'Starters',
     layout: 'right', // Content on Left, Image on Right
     delay: '0.1s',
@@ -14,7 +14,7 @@ const concepts = [
   {
     key: 'chinese',
     title: 'CHINESE',
-    image: '/images/menu4.svg', // Clay pot / Bowl image
+    image: '/images/menu2.svg', // Clay pot / Bowl image
     alt: 'Chinese dishes',
     layout: 'right', // Content on Left, Image on Right
     delay: '0.25s',
@@ -24,7 +24,7 @@ const concepts = [
   {
     key: 'main-course',
     title: 'MAIN COURSE',
-    image: '/images/menu2.svg', // Chai / Tea glasses image
+    image: '/images/menu3.svg', // Chai / Tea glasses image
     alt: 'Main Course dishes',
     layout: 'left', // Image on Left, Content on Right
     delay: '0.4s',
@@ -34,7 +34,7 @@ const concepts = [
   {
     key: 'biryani',
     title: 'BIRYANI',
-    image: '/images/menu1.svg', // Chinese food spread image
+    image: '/images/menu4.svg', // Chinese food spread image
     alt: 'Biryani dishes',
     layout: 'left', // Image on Left, Content on Right
     delay: '0.55s',

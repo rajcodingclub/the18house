@@ -2730,3 +2730,62 @@ text-align: center;
     padding: 50px 16px;
   }
 }
+
+/* =========================================================
+   CARD MEDIA HOVER — SQUARES PASS STRAIGHT THROUGH
+   ========================================================= */
+
+.card-media {
+  position: relative;
+  overflow: hidden; /* Clips squares as they enter and exit boundaries */
+}
+
+/* Base style for both light green squares */
+.card-media::before,
+.card-media::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  background: rgba(71, 119, 83, 0.3); /* Light green shadow overlay */
+  border: 1px solid rgba(180, 255, 200, 0.6);
+  box-shadow: 0 0 25px rgba(140, 220, 160, 0.5);
+  pointer-events: none;
+  z-index: 2;
+  /* Smooth continuous motion across the image */
+  transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Square 1: Starts off-screen at Top-Right */
+.card-media::before {
+  top: 0;
+  right: 0;
+  transform: translate(120%, -120%);
+}
+
+/* Square 2: Starts off-screen at Bottom-Left */
+.card-media::after {
+  bottom: 0;
+  left: 0;
+  transform: translate(-120%, 200%);
+}
+
+/* HOVER STATE — Squares pass straight through the center and exit opposite corners */
+.card-media:hover::before {
+  /* Passes through center and exits out Bottom-Left */
+  transform: translate(-180%, 180%);
+}
+
+.card-media:hover::after {
+  /* Passes through center and exits out Top-Right */
+  transform: translate(180%, -180%);
+}
+
+/* Subtle image zoom on hover for polish */
+.card-media img {
+  transition: transform 0.5s ease;
+}
+
+.card-media:hover img {
+  transform: scale(1.05);
+}
