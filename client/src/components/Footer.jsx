@@ -36,7 +36,7 @@ export default function Footer() {
 
       <div className="footer-contact">
         <div className="footer-contact-wrap">
-          <span className="eyebrow">CONTACT US</span>
+          <span className="eyebrow">BOOK NOW</span>
           <form className="subscribe-form" onSubmit={handleSubscribe}>
             <input
               type="email"

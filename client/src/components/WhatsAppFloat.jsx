@@ -1,7 +1,7 @@
 export default function WhatsAppFloat() {
   return (
     <a
-      href="https://wa.me/919876567854"
+      href="https://wa.me/918708044802"
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-float"
