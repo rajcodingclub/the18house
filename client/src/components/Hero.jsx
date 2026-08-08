@@ -61,7 +61,7 @@ export default function Hero() {
           <svg viewBox="0 0 24 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round">
             <path d="M2 14 L11 2 M6 10 L13 4 M9 13 L15 6" />
           </svg>
-          Tawa Marshal Presents
+          THE18HOUSE Presents
         </p>
         <h2 className="headline-overlay">
           <svg className="hero-doodle doodle-left" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.6">

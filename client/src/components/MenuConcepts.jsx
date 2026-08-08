@@ -3,12 +3,12 @@ import useInViewClass from '../hooks/useInViewClass.js';
 const concepts = [
   {
     key: 'tawa-marshal',
-    title: 'TAWA MARSHAL',
+    title: 'THE18HOUSE',
     image: '/images/menu1.svg',
-    alt: 'Tawa Marshal dishes spread',
+    alt: 'THE18HOUSE dishes spread',
     layout: 'left',
     delay: '0.1s',
-    text: "Tawa Marshal is where your cravings get loud, your cheat days go legendary, and every bite is an unforgettable flavor explosion. Juicy, drippy, double-stacked perfection, Feastria is where flavor, fun, and indulgence collide in every single bite.",
+    text: "THE18HOUSE is where your cravings get loud, your cheat days go legendary, and every bite is an unforgettable flavor explosion. Juicy, drippy, double-stacked perfection, Feastria is where flavor, fun, and indulgence collide in every single bite.",
     exploreHref: '#explore-tawa'
   },
   {
