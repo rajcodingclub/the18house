@@ -18,8 +18,8 @@ export default function Home() {
       <Nav />
       <Hero />
       <About />
-      <VideoShowcase />
       <MenuConcepts />
+      <VideoShowcase />
       <StoriesSection />
       <Testimonials />
       <BookingSection />

@@ -2,43 +2,43 @@ import useInViewClass from '../hooks/useInViewClass.js';
 
 const concepts = [
   {
-    key: 'tawa-marshal',
-    title: 'THE18HOUSE',
-    image: '/images/menu1.svg',
-    alt: 'THE18HOUSE dishes spread',
-    layout: 'left',
+    key: 'starter',
+    title: 'STARTER',
+    image: '/images/menu3.svg', // Roll / Wrap image
+    alt: 'Starters',
+    layout: 'right', // Content on Left, Image on Right
     delay: '0.1s',
-    text: "THE18HOUSE is where your cravings get loud, your cheat days go legendary, and every bite is an unforgettable flavor explosion. Juicy, drippy, double-stacked perfection, Feastria is where flavor, fun, and indulgence collide in every single bite.",
-    exploreHref: '#explore-tawa'
+    text: "At The18House, we serve delicious starters made with fresh ingredients, bold flavors, and signature seasonings. Inspired by India's food culture, every starter brings the perfect blend of taste, texture, and satisfaction.",
+    exploreHref: '#explore-starter'
   },
   {
-    key: 'chai-curry-chugli',
-    title: 'CHAI CURRY CHUGLI',
-    image: '/images/menu2.svg',
-    alt: 'Chai Curry Chugli tea and spices',
-    layout: 'left',
+    key: 'chinese',
+    title: 'CHINESE',
+    image: '/images/menu4.svg', // Clay pot / Bowl image
+    alt: 'Chinese dishes',
+    layout: 'right', // Content on Left, Image on Right
     delay: '0.25s',
-    text: 'At Chai Curry Chugli, we serve bold Indian comfort food with signature chais, tandoori parathas, loaded Maggi, flavorful Indo-Chinese favorites, and aromatic biryanis—crafted fresh to satisfy cravings and bring people together over great food.',
-    exploreHref: '#explore-chai'
+    text: 'At The18House, our Chinese dishes are made with fresh ingredients, bold flavors, and signature sauces. Inspired by classic Chinese cuisine, every dish brings the perfect blend of authentic taste, rich texture, and satisfaction to your table.',
+    exploreHref: '#explore-chinese'
   },
   {
-    key: 'bull-roll',
-    title: 'BULL ROLL',
-    image: '/images/menu3.svg',
-    alt: 'Bull Roll Kathi Rolls',
-    layout: 'right',
+    key: 'main-course',
+    title: 'MAIN COURSE',
+    image: '/images/menu2.svg', // Chai / Tea glasses image
+    alt: 'Main Course dishes',
+    layout: 'left', // Image on Left, Content on Right
     delay: '0.4s',
-    text: "At Bull Roll, we craft fresh vegetarian rolls filled with premium ingredients, bold flavors, and signature sauces, all wrapped in perfectly flaky parathas. Inspired by India's street food culture, every roll is made to satisfy every craving.",
-    exploreHref: '#explore-bull'
+    text: 'At The18House, our main course is made with fresh ingredients, rich flavors, and signature spices. From comforting classics to flavorful favorites, every dish brings the perfect blend of taste, texture, and satisfaction to your table.',
+    exploreHref: '#explore-main'
   },
   {
-    key: 'biryani-marshal',
-    title: 'BIRYANI MARSHAL',
-    image: '/images/menu4.svg',
-    alt: 'Biryani Marshal Handi',
-    layout: 'right',
+    key: 'biryani',
+    title: 'BIRYANI',
+    image: '/images/menu1.svg', // Chinese food spread image
+    alt: 'Biryani dishes',
+    layout: 'left', // Image on Left, Content on Right
     delay: '0.55s',
-    text: 'At Biryani Marshal, every biryani is slow-cooked with fragrant basmati rice, premium ingredients, and authentic Indian spices. Inspired by the legendary biryanis of India, we bring timeless flavors to your table with a modern touch.',
+    text: 'At The18House, our biryanis are made with fragrant rice, fresh ingredients, rich spices, and bold flavors. Every biryani is slow-cooked to perfection, bringing a delicious blend of aroma, authentic taste, rich texture, and satisfaction to your table.',
     exploreHref: '#explore-biryani'
   }
 ];
