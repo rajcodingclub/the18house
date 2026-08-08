@@ -12,7 +12,7 @@
   --color-bg-green-deep: #0f1c14;   /* slightly deeper shade for gradients */
   --color-bg-black:      #0d0d0d;   /* footer / dark sections */
   --color-bg:      #E9E1D6;   /* footer / dark sections */
-  --color-cream:         #f6f2e7;   /* main light text on dark bg */
+  --color-cream:         #E9E1D6;   /* main light text on dark bg */
   --color-yellow:        #f4e02c;   /* accent / marquee highlight */
   --color-yellow-dim:    #cdbf3a;
   --color-muted-green:   #24352a;   /* "hidden" marquee text on black */
@@ -795,7 +795,7 @@ h1,h2,h3,p{ margin:0; }
    OUR MENU SECTION STYLES
    ========================================================= */
 .our-menu-section {
-  background-color: #eae5d9; /* Cream/beige background */
+
   color: #0b2b1b;           /* Deep green typography */
   padding: 90px var(--page-pad, 5vw);
   overflow: hidden;
@@ -1055,7 +1055,7 @@ h1,h2,h3,p{ margin:0; }
    STORIES & SPECIALS SECTION (Infinite Marquee)
    ========================================================= */
 .stories-section {
-  background-color: #eae5d9; /* Cream/beige background */
+
   color: #0b2b1b;           /* Deep green typography */
   padding: 90px 0;          /* Full bleed marquee */
   overflow: hidden;
@@ -1410,7 +1410,7 @@ h1,h2,h3,p{ margin:0; }
    RESERVE YOUR TABLE SECTION
    ========================================================= */
 .booking-section {
-  background-color: #eae5d9; /* Cream/beige background */
+
   color: #0b2b1b;           /* Dark green typography */
   padding: 90px var(--page-pad, 5vw);
   overflow: hidden;
@@ -1649,7 +1649,6 @@ h1,h2,h3,p{ margin:0; }
    ========================================================= */
 .about-section {
   position: relative;
-  background-color: var(--color-bg, #E9E1D6); /* Matching Cream Theme */
   color: #0b2b1b;
   padding: 110px var(--page-pad, 5vw);
   overflow: hidden;
@@ -1860,7 +1859,6 @@ h1,h2,h3,p{ margin:0; }
 /* --- Menu Page Hero Section --- */
 .menu-page-hero {
   position: relative;
-  background-color: var(--color-bg, #E9E1D6);
   color: #0b2b1b;
   padding: 130px 0 60px;
   overflow: hidden;
@@ -2016,7 +2014,6 @@ h1,h2,h3,p{ margin:0; }
    INTERACTIVE MENU SECTION & FILTER BAR (ISOLATED STYLES)
    ========================================================= */
 .menu-filter-section {
-  background-color: var(--color-bg, #E9E1D6);
   color: #0b2b1b;
   width: 100%;
   overflow: hidden;
