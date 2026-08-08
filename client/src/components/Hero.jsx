@@ -27,7 +27,7 @@ export default function Hero() {
           Freshly Crafted.<br />Perfectly Served.
         </h1>
 
-        <div className="hero-content">
+        <div className="hero-content hero-content-start">
           <p className="overlay-copy">Modern dining with unforgettable flavors and inspired recipes.</p>
           <div className="hero-image-box" id="heroImageBox">
             <img src="/images/hero.svg" alt="Interior of The 18 House restaurant" />

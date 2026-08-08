@@ -262,12 +262,14 @@ h1,h2,h3,p{ margin:0; }
 @media (max-width:600px){
   .whatsapp-float{ width:48px; height:48px; right:16px; bottom:16px; }
   .whatsapp-float svg{ width:24px; height:24px; }
+
 }
 
 .hero-content{
         margin-top: 50px;
     width: 65%;
     display: flex;
+
     justify-content: space-between;
     align-items: center;
     gap: 0 50px;
@@ -371,12 +373,9 @@ h1,h2,h3,p{ margin:0; }
   text-align: center;
   padding: 0 var(--page-pad);
   opacity: 0;
-  /* Start positioned above for "Slide from Top" effect */
   transform: translateY(-50px);
   pointer-events: none;
-  /* Smooth easing transition */
   transition: opacity 1800ms var(--ease-hero), transform 1800ms var(--ease-hero);
-  /* Prevents blinking/flickering during layout shifts */
   will-change: transform, opacity;
   backface-visibility: hidden;
 }
@@ -696,6 +695,41 @@ h1,h2,h3,p{ margin:0; }
   .footer-columns{ grid-template-columns: 1fr; }
   .subscribe-form input{ font-size: 1.05rem; }
   .marquee-track span{ font-size: 2.6rem; }
+
+    .hero-content{
+        margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+}
+.hero-content-start{
+  flex-direction: column !important;
+        width: 116%;
+        gap: 10px;
+        margin-top: 0px;
+        justify-content: center;
+        align-items: center;
+}
+.overlay-copy {
+  text-align: center;
+}
+.footer-contact {
+  width: 100%;
+}
+.btn-learn-label {
+  padding: 12px 10px;
+}
+.hero-doodle.doodle-left {
+    left: clamp(0px, 6vw, -20px); 
+    top: 0; 
+    transform: translateY(-50%) rotate(-6deg);
+}
+.hero-doodle.doodle-right {
+    right: clamp(5px, -6vw, -20px);
+    top: -60%;
+}
 }
 
 
@@ -2069,7 +2103,7 @@ text-align: center;
 }
 
 @media (max-width: 600px) {
-  .menu-doodle.doodle-left { width: 36px; top: 18%; left: 4%; }
+  .menu-doodle.doodle-left { width: 30px; top: 25%; left: 4%; }
   .menu-doodle.doodle-right { width: 38px; top: 16%; right: 4%; }
 }
 

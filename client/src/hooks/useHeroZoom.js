@@ -20,7 +20,7 @@ export default function useHeroZoom() {
       return;
     }
 
-    const HOLD_BEFORE_ZOOM = 1500;
+    const HOLD_BEFORE_ZOOM = 150000;
     const ZOOM_DURATION = 1300;
     const HOLD_AFTER_ZOOM = 250;
 
