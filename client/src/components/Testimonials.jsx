@@ -25,7 +25,7 @@ const reviewsSet1 = [
   }
 ];
 
-// SET 2 (Cards that slide up on scroll)
+// SET 2 (Exact cards from screenshot 2)
 const reviewsSet2 = [
   {
     key: 'justin',
@@ -55,25 +55,53 @@ export default function Testimonials({ style }) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-// Replace handleScroll inside useEffect in Testimonials.jsx:
-const handleScroll = () => {
-  if (!sectionRef.current) return;
-  const rect = sectionRef.current.getBoundingClientRect();
+    let isLocked = false;
 
-  // Calculates the scroll ratio of the section (0 = entering bottom, 1 = fully scrolled up)
-  const scrolledRatio = (window.innerHeight - rect.top) / rect.height;
+    // Mouse wheel event (1st scroll triggers layout, 2nd scroll moves down)
+    const handleWheel = (e) => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
 
-  // Triggers card switch when section is scrolled up 90% (0.9)
-  if (scrolledRatio >= 0.7) {
-    setIsScrolled(true);
-  } else {
-    setIsScrolled(false);
-  }
-};
+      // Check if Testimonials section is centered in viewport
+      const isInView = rect.top <= window.innerHeight * 0.35 && rect.bottom >= window.innerHeight * 0.4;
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+      if (isInView && !isLocked && e.deltaY > 0) {
+        e.preventDefault(); // Lock scroll on 1st scroll down
+        setIsScrolled(true);
+        isLocked = true;
+      }
+    };
+
+    // Touch support for mobile
+    let touchStartY = 0;
+    const handleTouchStart = (e) => {
+      touchStartY = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e) => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const isInView = rect.top <= window.innerHeight * 0.35 && rect.bottom >= window.innerHeight * 0.4;
+
+      if (isInView && !isLocked) {
+        const touchCurrentY = e.touches[0].clientY;
+        if (touchStartY - touchCurrentY > 10) { // Scrolling down
+          e.preventDefault();
+          setIsScrolled(true);
+          isLocked = true;
+        }
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
   }, []);
 
   return (
@@ -91,11 +119,11 @@ const handleScroll = () => {
             </svg>
             <span className="testimonials-eyebrow">WHAT OUR GUESTS SAY</span>
           </div>
-          <h2 className="testimonials-title">REAL STORIES<br />REAL FLAVORS</h2>
+          <h2 className="testimonials-title">REAL STORIES.<br />REAL FLAVORS.</h2>
         </div>
 
         <div className="testimonials-grid">
-          {/* SET 1: Slides UP and OUT */}
+          {/* SET 1: Visible initially, slides UP and OUT on 1st scroll */}
           {reviewsSet1.map((review) => (
             <div className={`testimonial-card card-set-1 ${review.cardClass}`} key={review.key}>
               <div className="card-top">
@@ -110,7 +138,7 @@ const handleScroll = () => {
             </div>
           ))}
 
-          {/* SET 2: Slides UP FROM BOTTOM into view */}
+          {/* SET 2: Slides UP FROM BOTTOM into exact positions on 1st scroll */}
           {reviewsSet2.map((review) => (
             <div className={`testimonial-card card-set-2 ${review.cardClass}`} key={review.key}>
               <div className="card-top">

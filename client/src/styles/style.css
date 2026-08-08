@@ -2789,3 +2789,127 @@ text-align: center;
 .card-media:hover img {
   transform: scale(1.05);
 }
+
+/* =========================================================
+   TESTIMONIALS SECTION LAYOUT 2 (EXACT MATCH)
+   ========================================================= */
+
+.testimonials-section {
+  position: relative;
+  width: 100%;
+  min-height: 900px;
+  background: linear-gradient(180deg, rgba(12, 20, 15, 0.75) 0%, rgba(8, 14, 10, 0.85) 100%),
+              url('/images/hero.svg') center/cover no-repeat;
+  padding: 110px var(--page-pad, 5vw) 160px;
+  overflow: hidden;
+}
+
+.testimonials-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Header Text Styling */
+.testimonials-title {
+  font-family: var(--font-display, 'Archivo', sans-serif);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 6vw, 5.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Base Card Transition */
+.testimonial-card {
+  position: absolute;
+  background: #ffffff;
+  color: #111111;
+  width: 100%;
+  padding: 22px 24px;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  z-index: 5;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+/* --- SET 1 (Initial State) --- */
+.card-set-1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SET 1 (Scrolled State -> Slides UP and OUT) */
+.testimonials-section.is-scrolled .card-set-1 {
+  opacity: 0;
+  transform: translateY(-220px);
+  pointer-events: none;
+}
+
+/* --- SET 2 (Initial State -> Hidden below) --- */
+.card-set-2 {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- SET 2 CARD POSITIONS (Matches Image 2) --- */
+/* 1. Top Left Card (Justin Geidt) */
+.card-top-left {
+  top: -40px;
+  left: 10%;
+  max-width: 325px;
+  transform: translateY(220px);
+}
+
+/* 2. Top Right Card (Haylie Lubin) */
+.card-top-right {
+  top: 10px;
+  right: 12%;
+  max-width: 275px;
+  transform: translateY(220px);
+}
+
+/* 3. Bottom Center Card (Miracle Herwitz) */
+.card-bottom-center {
+  top: 260px;
+  left: 50%;
+  max-width: 350px;
+  transform: translate(-50%, 250px);
+}
+
+/* --- SET 2 ACTIVE STATE (Scrolled) --- */
+.testimonials-section.is-scrolled .card-top-left,
+.testimonials-section.is-scrolled .card-top-right {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.testimonials-section.is-scrolled .card-bottom-center {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+/* Responsive Reset for Mobile/Tablet */
+@media (max-width: 900px) {
+  .testimonials-grid {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .testimonial-card {
+    position: static;
+    max-width: 100%;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
