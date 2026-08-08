@@ -2,26 +2,14 @@ export default function About() {
   return (
     <section className="about-section" id="about">
       <div className="about-bg-doodles" aria-hidden="true">
-        <svg className="wavy-loop" viewBox="0 0 1000 500" fill="none" stroke="#0b2b1b" strokeWidth="0.8" strokeDasharray="3 3">
-          <path d="M 150 120 C 20 200, 40 420, 200 450 C 450 520, 800 480, 880 320 C 950 180, 850 30, 680 20 C 450 10, 100 80, 180 280 C 220 380, 400 460, 650 440" />
-        </svg>
+       
 
         <div className="doodle doodle-croissant">
-          <svg viewBox="0 0 64 64" fill="none" stroke="#0b2b1b" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 40 C10 24, 26 12, 46 16 C55 18, 58 28, 50 38 C40 48, 24 48, 12 40 Z" />
-            <path d="M20 28 C26 21, 38 21, 44 28" />
-            <path d="M26 35 C30 30, 38 31, 41 36" />
-          </svg>
+          <img src="/images/bun-black.svg" alt="" />
         </div>
 
         <div className="doodle doodle-cheese">
-          <svg viewBox="0 0 64 64" fill="none" stroke="#0b2b1b" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M8 46 L48 48 L42 22 Z" />
-            <path d="M8 46 L14 16 L42 22" />
-            <circle cx="22" cy="36" r="3" />
-            <circle cx="35" cy="38" r="2.5" />
-            <circle cx="26" cy="26" r="2" />
-          </svg>
+          <img src="/images/cheese-black.svg" alt="" />
         </div>
       </div>
 

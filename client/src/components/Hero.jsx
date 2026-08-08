@@ -18,24 +18,12 @@ export default function Hero() {
 
       <div className="hero-zoom-stage" id="heroStage">
         <p className="intro-eyebrow">
-          <svg viewBox="0 0 24 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round">
-            <path d="M2 14 L11 2 M6 10 L13 4 M9 13 L15 6" />
-          </svg>
-          The 18 House
+         <img src="/images/logo.svg" alt="" />
         </p>
 
         <h1 className="headline-intro">
-          <svg className="hero-doodle doodle-left" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.6">
-            <path d="M8 46 L30 12 L56 40 L40 52 Z" />
-            <circle cx="30" cy="34" r="2.4" fill="currentColor" stroke="none" />
-            <circle cx="22" cy="42" r="2" fill="currentColor" stroke="none" />
-            <circle cx="38" cy="42" r="2" fill="currentColor" stroke="none" />
-          </svg>
-          <svg className="hero-doodle doodle-right" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.6">
-            <path d="M10 40c6-14 20-22 34-18 8 2 12 10 8 16-4 7-16 8-24 4" />
-            <path d="M18 34c4-8 12-13 20-11" />
-            <path d="M22 40c3-6 9-10 15-9" />
-          </svg>
+        <img className="hero-doodle doodle-left" src="/images/cheese-yellow.svg" alt="" />
+         <img className="hero-doodle doodle-right" src="/images/bun-yellow.svg" alt="" />
           Freshly Crafted.<br />Perfectly Served.
         </h1>
 
@@ -58,23 +46,11 @@ export default function Hero() {
 
       <div className="hero-overlay-final">
         <p className="intro-eyebrow">
-          <svg viewBox="0 0 24 16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round">
-            <path d="M2 14 L11 2 M6 10 L13 4 M9 13 L15 6" />
-          </svg>
-          THE18HOUSE Presents
+         <img src="/images/logo.svg" alt="" />
         </p>
         <h2 className="headline-overlay">
-          <svg className="hero-doodle doodle-left" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.6">
-            <path d="M8 46 L30 12 L56 40 L40 52 Z" />
-            <circle cx="30" cy="34" r="2.4" fill="currentColor" stroke="none" />
-            <circle cx="22" cy="42" r="2" fill="currentColor" stroke="none" />
-            <circle cx="38" cy="42" r="2" fill="currentColor" stroke="none" />
-          </svg>
-          <svg className="hero-doodle doodle-right" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.6">
-            <path d="M10 40c6-14 20-22 34-18 8 2 12 10 8 16-4 7-16 8-24 4" />
-            <path d="M18 34c4-8 12-13 20-11" />
-            <path d="M22 40c3-6 9-10 15-9" />
-          </svg>
+          <img className="hero-doodle doodle-left" src="/images/cheese.svg" alt="" />
+         <img className="hero-doodle doodle-right" src="/images/bun.svg" alt="" />
           Freshly Crafted.<br />Perfectly Served.
         </h2>
         <div className="hero-content">

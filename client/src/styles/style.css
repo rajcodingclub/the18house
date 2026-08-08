@@ -266,7 +266,7 @@ h1,h2,h3,p{ margin:0; }
 
 .hero-content{
         margin-top: 50px;
-    width: 75%;
+    width: 65%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -276,6 +276,7 @@ h1,h2,h3,p{ margin:0; }
     max-width: 220px;
     text-align: left;
     text-transform: uppercase;
+    font-size: var(--fs-small)
 }
 /* =========================================================
    HERO — EXPANDED STATE
@@ -338,11 +339,11 @@ h1,h2,h3,p{ margin:0; }
   font-weight: 800; font-size: var(--fs-display); line-height: 0.98; letter-spacing: -0.01em;
   text-transform: uppercase; color: var(--color-cream); }
 
-.hero-doodle{ position:absolute; color: var(--color-yellow); opacity: 0.9; width: 64px; height: auto; pointer-events: none; }
-.hero-doodle.doodle-left{ left: clamp(-70px, -6vw, -20px); top: 50%; transform: translateY(-50%) rotate(-6deg); }
-.hero-doodle.doodle-right{ right: clamp(-70px, -6vw, -20px); top: 10%; transform: translateY(-50%) rotate(8deg); }
+.hero-doodle{ position:absolute; color: var(--color-yellow); opacity: 0.9; width: 40px; height: auto; pointer-events: none; }
+.hero-doodle.doodle-left{ left: clamp(-90px, -6vw, -20px); top: -10%; transform: translateY(-50%) rotate(-6deg); }
+.hero-doodle.doodle-right{ right: clamp(-50px, -6vw, -20px); top: -40%; transform: translateY(-50%) rotate(8deg); scale: 1.5; }
 
-.hero-image-box{ position: relative; width: min(280px, 42vw); aspect-ratio: 16 / 9.4; min-width: 220px;
+.hero-image-box{ position: relative; width: min(220px, 42vw); aspect-ratio: 16 / 9.4; min-width: 200px;
   border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.35); }
 .hero-image-box img{ position:absolute; inset:0; width:100%; height:100%; object-fit: cover; }
 
@@ -1648,11 +1649,13 @@ h1,h2,h3,p{ margin:0; }
    ABOUT US SECTION STYLES
    ========================================================= */
 .about-section {
+  background: url('/images/about-bg.svg');
   position: relative;
   color: #0b2b1b;
   padding: 110px var(--page-pad, 5vw);
   overflow: hidden;
   text-align: center;
+  background-size: contain;
 }
 
 .about-container {
@@ -1756,8 +1759,8 @@ h1,h2,h3,p{ margin:0; }
 }
 
 .doodle-cheese {
-  bottom: 18%;
-  left: 12%;
+  bottom: 25%;
+  left: 15%;
   width: 52px;
   height: 52px;
   transform: rotate(-10deg);
@@ -1878,14 +1881,10 @@ h1,h2,h3,p{ margin:0; }
 }
 
 .brand-sub {
-  display: block;
-  font-family: var(--font-display, 'Archivo', sans-serif);
-  font-size: clamp(1rem, 1.8vw, 1.4rem);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #0b2b1b;
-  margin-bottom: 12px;
+  width: 300px;
+  
+text-align: center;
+    margin: 10px auto;
 }
 
 .menu-hero-title {
