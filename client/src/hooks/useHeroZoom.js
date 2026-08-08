@@ -1,11 +1,5 @@
 import { useEffect } from 'react';
 
-/**
- * Hero animation triggered ONCE on scroll down:
- * 1) Page starts in initial compact layout when scrolled at the top.
- * 2) As user scrolls down, .hero--zooming and .hero--revealed are applied.
- * 3) Once revealed, the state locks and does NOT reverse when scrolling back up.
- */
 export default function useHeroZoom() {
   useEffect(() => {
     const hero = document.querySelector('.hero');
@@ -13,13 +7,17 @@ export default function useHeroZoom() {
     const imageBox = document.querySelector('.hero-image-box');
     if (!hero || !stage || !imageBox) return;
 
+    let isRevealed = false;
+    let isAnimating = false;
+
+    // Check if user has reduced motion enabled
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
       hero.classList.add('hero--revealed');
       return;
     }
 
-    // Calculates the required scale factor & origin to zoom image to full screen
+    // Calculates scale factor and origin point to expand image full-screen
     function primeZoom() {
       const viewportW = window.innerWidth;
       const viewportH = window.innerHeight;
@@ -33,39 +31,62 @@ export default function useHeroZoom() {
 
     primeZoom();
 
-    function handleScroll() {
-      // If already permanently revealed, stop checking
-      if (hero.classList.contains('hero--revealed')) return;
+    // Plays the full zoom -> reveal sequence
+    function playAnimation() {
+      if (isAnimating || isRevealed) return;
+      isAnimating = true;
 
-      const scrollY = window.scrollY;
+      // Step 1: Start image zoom
+      hero.classList.add('hero--zooming');
 
-      const ZOOM_THRESHOLD = 30;    // Scroll pixels to trigger image zoom
-      const REVEAL_THRESHOLD = 160;  // Scroll pixels to reveal final top-slide content
-
-      if (scrollY >= REVEAL_THRESHOLD) {
+      // Step 2: After zoom duration, trigger top-slide reveal
+      setTimeout(() => {
         hero.classList.remove('hero--zooming');
         hero.classList.add('hero--revealed');
-        // Remove scroll listener once permanently revealed so it never reverses
-        window.removeEventListener('scroll', handleScroll);
-      } else if (scrollY >= ZOOM_THRESHOLD) {
-        hero.classList.add('hero--zooming');
+        isRevealed = true;
+        isAnimating = false;
+      }, 500); // Adjust duration to match CSS zoom transition
+    }
+
+    // Mouse wheel intercept for desktop
+    function handleWheel(e) {
+      // If at top of page and animation hasn't completed yet
+      if (window.scrollY <= 10 && !isRevealed) {
+        if (e.deltaY > 0) {
+          // Prevent page from scrolling down on 1st scroll
+          e.preventDefault();
+          playAnimation();
+        }
       }
     }
 
-    // Run check on initial load (in case page refreshed midway)
-    handleScroll();
-
-    function handleResize() {
-      primeZoom();
-      handleScroll();
+    // Touch gesture intercept for mobile
+    let touchStartY = 0;
+    function handleTouchStart(e) {
+      touchStartY = e.touches[0].clientY;
     }
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleResize);
+    function handleTouchMove(e) {
+      if (window.scrollY <= 10 && !isRevealed) {
+        const touchCurrentY = e.touches[0].clientY;
+        if (touchStartY - touchCurrentY > 10) { // Swiping up (scrolling down)
+          e.preventDefault();
+          playAnimation();
+        }
+      }
+    }
+
+    // Event Listeners (passive: false allows e.preventDefault())
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchmove', handleTouchMove, { passive: false });
+    window.addEventListener('resize', primeZoom);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('resize', primeZoom);
     };
   }, []);
 }

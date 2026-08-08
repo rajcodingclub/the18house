@@ -6,21 +6,20 @@ export default function Hero() {
 
   return (
     <section className="hero" id="hero">
-      
-
-      {/* full-bleed copy of the same photo, revealed once the zoom starts */}
+      {/* Full-bleed background photo revealed after zoom */}
       <div className="hero-bg">
-        <img src="/images/hero.svg" alt="" />
+        <img src="/images/hero.svg" alt="Restaurant Background" />
       </div>
 
+      {/* Initial Stage (Zoom Stage) */}
       <div className="hero-zoom-stage" id="heroStage">
         <p className="intro-eyebrow">
-         <img src="/images/logo.svg" alt="" />
+          <img src="/images/logo.svg" alt="The 18 House Logo" />
         </p>
 
         <h1 className="headline-intro">
-        <img className="hero-doodle doodle-left" src="/images/cheese-yellow.svg" alt="" />
-         <img className="hero-doodle doodle-right" src="/images/bun-yellow.svg" alt="" />
+          <img className="hero-doodle doodle-left" src="/images/cheese-yellow.svg" alt="" />
+          <img className="hero-doodle doodle-right" src="/images/bun-yellow.svg" alt="" />
           Freshly Crafted.<br />Perfectly Served.
         </h1>
 
@@ -41,13 +40,14 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* Final Overlay Stage (Slides in from top after 1st scroll) */}
       <div className="hero-overlay-final">
         <p className="intro-eyebrow">
-         <img src="/images/logo.svg" alt="" />
+          <img src="/images/logo.svg" alt="The 18 House Logo" />
         </p>
         <h2 className="headline-overlay">
           <img className="hero-doodle doodle-left" src="/images/cheese.svg" alt="" />
-         <img className="hero-doodle doodle-right" src="/images/bun.svg" alt="" />
+          <img className="hero-doodle doodle-right" src="/images/bun.svg" alt="" />
           Freshly Crafted.<br />Perfectly Served.
         </h2>
         <div className="hero-content">
