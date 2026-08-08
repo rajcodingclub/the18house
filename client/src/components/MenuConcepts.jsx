@@ -63,7 +63,7 @@ function MenuCard({ concept }) {
         <span className="arrow">&gt;</span>
       </a>
       <div className="delivery-apps">
-        <a href="#" className="app-btn" aria-label="Zomato">
+        <a href="https://www.zomato.com/ncr/the-18th-house-sector-18-faridabad/order" className="app-btn" aria-label="Zomato">
           <img src="/images/zomato-icon.svg" alt="Zomato" />
         </a>
         <a href="#" className="app-btn" aria-label="Swiggy">

@@ -72,7 +72,7 @@ export default function Footer() {
         <div className="footer-col">
           <h4>ORDER NOW</h4>
           <div className="order-buttons">
-            <a href="#" className="order-btn zomato">ORDER ON ZOMATO</a>
+            <a href="https://www.zomato.com/ncr/the-18th-house-sector-18-faridabad/order" className="order-btn zomato">ORDER ON ZOMATO</a>
             <a href="#" className="order-btn swiggy">ORDER ON SWIGGY</a>
           </div>
         </div>

@@ -28,7 +28,7 @@ export default function CategorySection({ category, dishes }) {
       </div>
 
       <div className="menu-delivery-row">
-        <a href="#" className="menu-delivery-btn zomato">ORDER ON ZOMATO</a>
+        <a href="https://www.zomato.com/ncr/the-18th-house-sector-18-faridabad/order" className="menu-delivery-btn zomato">ORDER ON ZOMATO</a>
         <a href="#" className="menu-delivery-btn swiggy">ORDER ON SWIGGY</a>
       </div>
     </div>
