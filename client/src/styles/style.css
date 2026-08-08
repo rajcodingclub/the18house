@@ -355,26 +355,90 @@ h1,h2,h3,p{ margin:0; }
 .hero-bg img{ width:100%; height:100%; object-fit:cover; }
 .hero-bg::after{ content:""; position:absolute; inset:0;
   background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%); }
+/* =========================================================
+   HERO FINAL OVERLAY & ZOOM STATES (UPDATED)
+   ========================================================= */
 
-.hero-overlay-final{ position:absolute; inset:0; z-index: 20; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; text-align:center; padding: 0 var(--page-pad);
-  opacity: 0; transform: translateY(14px); pointer-events:none;
-  transition: opacity 700ms var(--ease-hero), transform 700ms var(--ease-hero); }
-.hero-overlay-final .intro-eyebrow{ color: rgba(255,255,255,0.9); margin-bottom: 16px; }
-.hero-overlay-final .hero-doodle{ color: rgba(255,255,255,0.85); }
-.hero-overlay-final p.overlay-copy{ margin-top: 18px; max-width: 200px; font-size: var(--fs-small);
-  color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.04em; }
-.hero-overlay-final .btn-pill{ margin-top: 26px; pointer-events:auto; }
+/* --- Base state before reveal (Hidden above top) --- */
+.hero-overlay-final {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 var(--page-pad);
+  opacity: 0;
+  /* Start positioned above for "Slide from Top" effect */
+  transform: translateY(-50px);
+  pointer-events: none;
+  /* Smooth easing transition */
+  transition: opacity 1800ms var(--ease-hero), transform 1800ms var(--ease-hero);
+  /* Prevents blinking/flickering during layout shifts */
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
 
-.hero--zooming .hero-nav{ opacity: 0; }
-.hero--zooming .hero-bg{ opacity: 1; }
-.hero--zooming .hero-zoom-stage{ transform: scale(var(--zoom-scale, 9)); }
+.hero-overlay-final .intro-eyebrow {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 16px;
+}
 
-.hero--revealed .hero-zoom-stage{ opacity: 0; transition: opacity 200ms linear; }
-.hero--revealed .hero-nav{ opacity: 1; }
-.hero--revealed .hero-bg{ opacity: 1; }
-.hero--revealed .hero-overlay-final{ opacity: 1; transform: translateY(0); transition-delay: 80ms; }
+.hero-overlay-final .hero-doodle {
+  color: rgba(255, 255, 255, 0.85);
+}
 
+.hero-overlay-final p.overlay-copy {
+  margin-top: 18px;
+  max-width: 200px;
+  font-size: var(--fs-small);
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hero-overlay-final .btn-pill {
+  margin-top: 26px;
+  pointer-events: auto;
+}
+
+/* --- Zooming State --- */
+.hero--zooming .hero-nav {
+  opacity: 0;
+}
+
+.hero--zooming .hero-bg {
+  opacity: 1;
+}
+
+.hero--zooming .hero-zoom-stage {
+  transform: scale(var(--zoom-scale, 9));
+}
+
+/* --- Revealed State (Triggers Slide-down from Top) --- */
+/* Change this rule in your CSS */
+.hero--revealed .hero-zoom-stage {
+  opacity: 0 !important;
+  visibility: hidden;  /* Instantly hides previous content without delay */
+  transition: none;   /* Removes any fade delay on the old content */
+}
+
+.hero--revealed .hero-nav {
+  opacity: 1;
+}
+
+.hero--revealed .hero-bg {
+  opacity: 1;
+}
+
+.hero--revealed .hero-overlay-final {
+  opacity: 1;
+  /* Slides into place from top */
+  transform: translateY(0);
+  pointer-events: auto;
+}
 @media (prefers-reduced-motion: reduce){
   .hero-zoom-stage, .hero-nav, .hero-bg, .hero-overlay-final{ transition: none !important; }
 }
