@@ -1,6 +1,7 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
 const Booking = require('../models/Booking');
+const { sendBookingEmails } = require('../utils/mailer');
 
 const router = express.Router();
 
@@ -13,7 +14,9 @@ const bookingValidators = [
   body('message').optional({ checkFalsy: true }).trim()
 ];
 
-// POST /api/bookings -> create a new table reservation
+// POST /api/bookings -> create a new table reservation (public).
+// On success, emails the restaurant (thehouseof18th@gmail.com) with the
+// full details, and sends a confirmation copy to the guest.
 router.post('/', bookingValidators, async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -23,20 +26,18 @@ router.post('/', bookingValidators, async (req, res) => {
   try {
     const { name, email, phone, date, time, message } = req.body;
     const booking = await Booking.create({ name, email, phone, date, time, message });
+
+    // Don't let a slow/broken mail provider block the booking response.
+    sendBookingEmails(booking).catch((err) =>
+      console.error('[Bookings] Email dispatch failed:', err.message)
+    );
+
     res.status(201).json({ message: 'Booking received! We will confirm shortly.', booking });
   } catch (err) {
     res.status(500).json({ message: 'Failed to save booking.', error: err.message });
   }
 });
 
-// GET /api/bookings -> list bookings (simple admin/back-office use)
-router.get('/', async (req, res) => {
-  try {
-    const bookings = await Booking.find().sort({ createdAt: -1 });
-    res.json({ bookings });
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to load bookings.', error: err.message });
-  }
-});
+// NOTE: listing/managing bookings now lives at /api/admin/bookings (auth required).
 
 module.exports = router;
