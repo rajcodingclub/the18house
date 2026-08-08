@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 
 /**
- * Ports the original script.js hero load animation:
- * 1) Page loads showing the compact "slide 1" layout.
- * 2) After a short beat, .hero--zooming is added; CSS grows the image
- *    to full-bleed and cross-fades the overlay copy in.
- * 3) .hero--revealed marks the final "slide 3" resting state.
+ * Hero animation triggered by SCROLL instead of timer:
+ * 1) Page starts in initial compact layout when scrolled at the top.
+ * 2) As user begins scrolling down, .hero--zooming is added (grows image full-bleed).
+ * 3) Scrolling further adds .hero--revealed (hides initial stage, slides final overlay down from top).
  */
 export default function useHeroZoom() {
   useEffect(() => {
@@ -20,10 +19,7 @@ export default function useHeroZoom() {
       return;
     }
 
-    const HOLD_BEFORE_ZOOM = 150000;
-    const ZOOM_DURATION = 1300;
-    const HOLD_AFTER_ZOOM = 250;
-
+    // Calculates the required scale factor & origin to zoom image to full screen
     function primeZoom() {
       const viewportW = window.innerWidth;
       const viewportH = window.innerHeight;
@@ -37,22 +33,39 @@ export default function useHeroZoom() {
 
     primeZoom();
 
-    const zoomTimer = window.setTimeout(() => hero.classList.add('hero--zooming'), HOLD_BEFORE_ZOOM);
-    const revealTimer = window.setTimeout(() => {
-      hero.classList.remove('hero--zooming');
-      hero.classList.add('hero--revealed');
-    }, HOLD_BEFORE_ZOOM + ZOOM_DURATION + HOLD_AFTER_ZOOM);
+    // Scroll listener to toggle animation states based on scroll distance
+    function handleScroll() {
+      const scrollY = window.scrollY;
 
-    function handleResize() {
-      if (!hero.classList.contains('hero--zooming') && !hero.classList.contains('hero--revealed')) {
-        primeZoom();
+      // Adjust these scroll pixel thresholds if needed:
+      const ZOOM_THRESHOLD = 30;    // Scroll pixels to trigger image zoom
+      const REVEAL_THRESHOLD = 160;  // Scroll pixels to reveal final top-slide content
+
+      if (scrollY >= REVEAL_THRESHOLD) {
+        hero.classList.remove('hero--zooming');
+        hero.classList.add('hero--revealed');
+      } else if (scrollY >= ZOOM_THRESHOLD) {
+        hero.classList.add('hero--zooming');
+        hero.classList.remove('hero--revealed');
+      } else {
+        // Returned to top of page: reset back to initial stage
+        hero.classList.remove('hero--zooming', 'hero--revealed');
       }
     }
+
+    // Run check on initial load (in case page refreshed midway)
+    handleScroll();
+
+    function handleResize() {
+      primeZoom();
+      handleScroll();
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleResize);
 
     return () => {
-      window.clearTimeout(zoomTimer);
-      window.clearTimeout(revealTimer);
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
   }, []);

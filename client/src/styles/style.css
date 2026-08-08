@@ -1454,6 +1454,70 @@ h1,h2,h3,p{ margin:0; }
   left: 37%;
 }
 
+
+/* =========================================================
+   TESTIMONIALS SCROLL SLIDE ANIMATION
+   ========================================================= */
+
+/* Base transition for all testimonial cards */
+.testimonial-card {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease;
+  will-change: transform, opacity;
+}
+
+/* SET 1: Visible initially, slides UP & FADES OUT on scroll */
+.card-set-1 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonials-section.is-scrolled .card-set-1 {
+  opacity: 0;
+  transform: translateY(-160px); /* Slides UP out of screen */
+  pointer-events: none;
+}
+
+/* SET 2: Hidden below initial position, slides UP into view on scroll */
+.card-set-2 {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- SET 2 POSITIONS (Matching 2nd Image Layout) --- */
+.card-top-left {
+  top: -50px;
+  left: 8%;
+  transform: translateY(180px); /* Starts lower down */
+}
+
+.card-top-right {
+  top: -20px;
+  right: 8%;
+  transform: translateY(180px); /* Starts lower down */
+}
+
+.card-bottom-center {
+  top: 230px;
+  left: 50%;
+  transform: translate(-50%, 200px); /* Starts lower down centered */
+}
+
+/* SET 2 ACTIVE STATE (Scrolled) */
+.testimonials-section.is-scrolled .card-top-left,
+.testimonials-section.is-scrolled .card-top-right {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.testimonials-section.is-scrolled .card-bottom-center {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
 /* =========================================================
    RESPONSIVE DESIGN
    ========================================================= */

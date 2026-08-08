@@ -6,10 +6,7 @@ export default function Hero() {
 
   return (
     <section className="hero" id="hero">
-      <nav className="hero-nav">
-        <a href="#booking" className="nav-mark">CONTACT US</a>
-        <Link to="/menu" className="nav-mark">Menu</Link>
-      </nav>
+      
 
       {/* full-bleed copy of the same photo, revealed once the zoom starts */}
       <div className="hero-bg">
