@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 
 /**
- * Hero animation triggered by SCROLL instead of timer:
+ * Hero animation triggered ONCE on scroll down:
  * 1) Page starts in initial compact layout when scrolled at the top.
- * 2) As user begins scrolling down, .hero--zooming is added (grows image full-bleed).
- * 3) Scrolling further adds .hero--revealed (hides initial stage, slides final overlay down from top).
+ * 2) As user scrolls down, .hero--zooming and .hero--revealed are applied.
+ * 3) Once revealed, the state locks and does NOT reverse when scrolling back up.
  */
 export default function useHeroZoom() {
   useEffect(() => {
@@ -33,23 +33,22 @@ export default function useHeroZoom() {
 
     primeZoom();
 
-    // Scroll listener to toggle animation states based on scroll distance
     function handleScroll() {
+      // If already permanently revealed, stop checking
+      if (hero.classList.contains('hero--revealed')) return;
+
       const scrollY = window.scrollY;
 
-      // Adjust these scroll pixel thresholds if needed:
       const ZOOM_THRESHOLD = 30;    // Scroll pixels to trigger image zoom
       const REVEAL_THRESHOLD = 160;  // Scroll pixels to reveal final top-slide content
 
       if (scrollY >= REVEAL_THRESHOLD) {
         hero.classList.remove('hero--zooming');
         hero.classList.add('hero--revealed');
+        // Remove scroll listener once permanently revealed so it never reverses
+        window.removeEventListener('scroll', handleScroll);
       } else if (scrollY >= ZOOM_THRESHOLD) {
         hero.classList.add('hero--zooming');
-        hero.classList.remove('hero--revealed');
-      } else {
-        // Returned to top of page: reset back to initial stage
-        hero.classList.remove('hero--zooming', 'hero--revealed');
       }
     }
 
