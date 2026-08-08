@@ -64,7 +64,7 @@ const handleScroll = () => {
   const scrolledRatio = (window.innerHeight - rect.top) / rect.height;
 
   // Triggers card switch when section is scrolled up 90% (0.9)
-  if (scrolledRatio >= 0.9) {
+  if (scrolledRatio >= 0.7) {
     setIsScrolled(true);
   } else {
     setIsScrolled(false);

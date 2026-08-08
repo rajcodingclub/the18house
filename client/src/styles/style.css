@@ -1303,7 +1303,7 @@ h1,h2,h3,p{ margin:0; }
   min-height: 850px;
   /* Dark overlay on top of hero.svg background image */
   background: linear-gradient(180deg, rgba(12, 20, 15, 0.75) 0%, rgba(8, 14, 10, 0.85) 100%),
-              url('images/hero.svg') center/cover no-repeat;
+              url('/images/hero.svg') center/cover no-repeat;
   padding: 90px var(--page-pad, 5vw) 200px;
   overflow: hidden;
   box-sizing: border-box;
@@ -2640,7 +2640,7 @@ text-align: center;
   min-height: 480px;
   /* Dark overlay over hero.svg background image */
   background: linear-gradient(180deg, rgba(12, 12, 12, 0.78) 0%, rgb(5 5 5 / 32%) 100%),
-              url('images/hero.svg') center/cover no-repeat;
+              url('/images/hero.svg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
