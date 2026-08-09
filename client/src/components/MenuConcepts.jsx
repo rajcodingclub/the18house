@@ -4,7 +4,7 @@ const concepts = [
   {
     key: 'starter',
     title: 'STARTER',
-    image: '/images/menu1.svg', // Roll / Wrap image
+    image: '/images/starter.jpeg', // Roll / Wrap image
     alt: 'Starters',
     layout: 'right', // Content on Left, Image on Right
     delay: '0.1s',
