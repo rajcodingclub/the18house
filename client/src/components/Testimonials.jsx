@@ -7,21 +7,21 @@ const reviewsSet1 = [
     cardClass: 'card-left',
     text: "Fresh ingredients, rich flavors, and excellent presentation. You can really tell they care about quality. I'll definitely be ordering again.",
     avatar: '/images/avatar-1.svg',
-    name: 'Giana George'
+    name: 'Karan Kumar'
   },
   {
     key: 'lydia',
     cardClass: 'card-right',
     text: "Absolutely amazing food! The flavors were authentic, the portions were generous, and everything arrived fresh and hot. One of the best dining experiences I've had.",
     avatar: '/images/avatar-2.svg',
-    name: 'Lydia Baptista'
+    name: 'Manjeet Singh'
   },
   {
     key: 'haylie',
     cardClass: 'card-bottom',
     text: 'The quality and taste exceeded my expectations. Every dish was perfectly prepared, and the service was fast and friendly. Highly recommended!',
     avatar: '/images/avatar-3.svg',
-    name: 'Haylie Torff'
+    name: 'Kajol Mishra'
   }
 ];
 
@@ -32,21 +32,21 @@ const reviewsSet2 = [
     cardClass: 'card-top-left',
     text: "An outstanding experience from start to finish! Every dish was packed with authentic flavors, beautifully presented, and made with fresh, high-quality ingredients. The portions were generous, the service was prompt, and everything arrived hot and perfectly cooked. It's rare to find a place that consistently delivers both exceptional taste and great value.",
     avatar: '/images/avatar-3.svg',
-    name: 'Justin Geidt'
+    name: 'Yastika Singh'
   },
   {
     key: 'haylie-lubin',
     cardClass: 'card-top-right',
     text: "Fresh ingredients, rich flavors, and excellent presentation. You can really tell they care about quality.",
     avatar: '/images/avatar-2.svg',
-    name: 'Haylie Lubin'
+    name: 'Mohit Suri'
   },
   {
     key: 'miracle',
     cardClass: 'card-bottom-center',
     text: "This restaurant has quickly become one of my favorites. The food is incredibly flavorful, perfectly seasoned, and clearly prepared with great attention to detail. Whether you're dining in or ordering online, the quality remains consistently excellent. The staff is courteous, the service is reliable, and every meal feels like it's been made with genuine care. If you're looking for delicious food and a memorable dining experience, this place is definitely worth visiting!",
     avatar: '/images/avatar-1.svg',
-    name: 'Miracle Herwitz'
+    name: 'Harshit Nehra'
   }
 ];
 
