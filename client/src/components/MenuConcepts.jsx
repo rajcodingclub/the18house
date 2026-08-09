@@ -66,7 +66,7 @@ function MenuCard({ concept }) {
         <a href="https://www.zomato.com/ncr/the-18th-house-sector-18-faridabad/order" className="app-btn" aria-label="Zomato">
           <img src="/images/zomato-icon.svg" alt="Zomato" />
         </a>
-        <a href="#" className="app-btn" aria-label="Swiggy">
+        <a href="https://www.swiggy.com/city/gurgaon/the-eighteenth-house-palam-vihar-rest1419980" className="app-btn" aria-label="Swiggy">
           <img src="/images/swiggy-icon.svg" alt="Swiggy" />
         </a>
       </div>
