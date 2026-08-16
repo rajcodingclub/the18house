@@ -66,7 +66,8 @@ export default function Footer() {
           <h4>CONTACT</h4>
           <p><a href="tel:+919876567854">+91-9876567854</a></p>
           <p><a href="mailto:the18house@gmail.com">THE18HOUSE@GMAIL.COM</a></p>
-          <p>SCO 22, GF, SECTOR 83,<br />GURUGRAM, HARYANA 122012</p>
+           
+          <p>Ground Floor, Parveen Yadav Complex,<br />The 18th House, Offosite Seimens, Sector 18,<br />Sarhol, Gurugram, Haryana 122015</p>
         </div>
 
         <div className="footer-col">
